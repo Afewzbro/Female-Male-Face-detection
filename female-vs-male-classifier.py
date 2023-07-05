@@ -155,3 +155,28 @@ cm_display = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=labels)
 cm_display.plot(cmap='Blues')
 plt.title('Confusion Matrix')
 plt.show()
+
+import tensorflow as tf
+from tensorflow.keras.models import load_model
+from tensorflow.keras.preprocessing.image import load_img, img_to_array
+import numpy as np
+import matplotlib.pyplot as plt
+
+image_path = '/content/Screenshot from 2023-07-05 19-31-21.png'
+image = load_img(image_path, target_size=(img_width, img_height))
+image_array = img_to_array(image) / 255.0  # Convert image to array and normalize pixel values
+image_array = np.expand_dims(image_array, axis=0)  # Add an extra dimension to match the model's input shape
+
+plt.imshow(image)
+
+predictions = model.predict(image_array)
+class_labels = ['Female', 'Male']  # Define your class labels
+
+# Get the predicted class index (0 for cat, 1 for dog)
+predicted_class_index = np.argmax(predictions[0])
+
+# Get the predicted class label
+predicted_class_label = class_labels[predicted_class_index]
+
+# Print the predicted class label
+print(f"Predicted Class: {predicted_class_label}")
