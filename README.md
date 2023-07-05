@@ -28,7 +28,7 @@ You can install the required dependencies by running the following command: pip 
 ## Usage
 
 1. Clone the repository: [The Code](https://github.com/Afewzbro/Female-Male-Face-detection) link
-   - git clone 
+   - git clone https://github.com/Afewzbro/Female-Male-Face-detection.git
 
 2. Preprocess the Dataset:
    - Place your dataset in the appropriate directories: `dataset/train`, `dataset/validation`, and `dataset/test`.
